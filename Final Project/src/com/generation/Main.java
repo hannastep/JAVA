@@ -87,7 +87,22 @@ public class Main
 
     private static void gradeStudent( StudentService studentService, Scanner scanner )
     {
+        System.out.println( "Insert student ID" );
+        String studentId = scanner.next();
+        Student student = studentService.findStudent( studentId );
+        if ( student == null )
+        {
+            System.out.println( "Invalid Student ID" );
+            return;
+        }
+        System.out.println(student);
 
+        System.out.println("Insert course CODE to be graded:");
+        String courseId = scanner.next();
+
+        System.out.println("Insert course grade for "+courseId);
+        float grade = Float.parseFloat(scanner.next());
+        System.out.println("Student with ID " + studentId + " has been graded "+grade+" to course " + courseId);
     }
 
     private static void findStudent( StudentService studentService, Scanner scanner )

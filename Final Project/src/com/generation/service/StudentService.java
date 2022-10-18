@@ -27,11 +27,22 @@ public class StudentService
     public boolean isSubscribed( String studentId )
     {
         //TODO implement this method
+        if(students.containsKey(studentId)) return true;
         return false;
     }
 
     public void showSummary()
     {
+        System.out.println( "Students:" );
+        for ( String key : students.keySet() )
+        {
+            Student student = students.get( key );
+            System.out.println( student );
+            System.out.println( "Approved Courses:" );
+            for (Course c : student.getApprovedCourses()) {
+                System.out.println(c);
+            }
+        }
         //TODO implement
     }
 
